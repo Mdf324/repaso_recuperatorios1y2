@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material de Estudio - Educación Tecnológica</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --light: #f9f9f9;
+            --dark: #2c3e50;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            background-color: white;
+            border: none;
+            border-radius: 30px;
+            margin: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        
+        .tab-button.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 20px 0 10px;
+        }
+        
+        .card {
+            background-color: var(--light);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example-box {
+            background-color: #e8f4fc;
+            border: 1px dashed var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .activity {
+            background-color: #e8f6ef;
+            border: 1px dashed var(--secondary);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .tip {
+            background-color: #fff9e6;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .word-search {
+            background-color: white;
+            border: 2px solid var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .word-search-grid {
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: 2px;
+            margin: 20px 0;
+        }
+        
+        .word-search-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .word-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .word-item {
+            background-color: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: var(--dark);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .word-search-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Material de Estudio - Educación Tecnológica</h1>
+            <p class="subtitle">Recuperatorios</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" data-tab="recuperatorio1">Recuperatorio 1</button>
+            <button class="tab-button" data-tab="recuperatorio2">Recuperatorio 2</button>
+            <button class="tab-button" data-tab="actividades">Actividades Prácticas</button>
+            <button class="tab-button" data-tab="consejos">Consejos de Estudio</button>
+        </div>
+        
+        <!-- RECUPERATORIO 1 -->
+        <div id="recuperatorio1" class="tab-content active">
+            <h2>Recuperatorio 1er Trimestre</h2>
+            
+            <div class="card">
+                <h3>¿Qué es la Tecnología?</h3>
+                <p>La <strong>tecnología</strong> es el conjunto de conocimientos, herramientas, técnicas y procesos que usamos para resolver problemas o satisfacer necesidades humanas. No son solo objetos físicos, también incluyen métodos, procesos y formas de organización.</p>
+                
+                <div class="example-box">
+                    <h4>Ejemplos:</h4>
+                    <ul>
+                        <li>Una <strong>tablet</strong> es un objeto tecnológico (bien).</li>
+                        <li>La <strong>app</strong> que usas para chatear es un servicio tecnológico.</li>
+                        <li>Los <strong>pasos para fabricar la tablet</strong> son un proceso tecnológico.</li>
+                    </ul>
+                </div>
+                
+                <div class="tip">
+                    <p><strong>💡 Dato importante:</strong> La palabra "tecnología" viene del griego "tekne" (arte, técnica) y "logia" (estudio). Por lo tanto, tecnología significa "el estudio de las técnicas".</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Mundo Natural y Mundo Artificial</h3>
+                <p>Es fundamental entender la diferencia entre estos dos conceptos:</p>
+                
+                <div class="example-box">
+                    <h4>Mundo Natural:</h4>
+                    <p>Todo lo que existe sin la intervención del ser humano.</p>
+                    <ul>
+                        <li>Árboles, ríos, montañas</li>
+                        <li>Animales, plantas</li>
+                        <li>Fenómenos naturales (lluvia, viento)</li>
+                    </ul>
+                    
+                    <h4>Mundo Artificial:</h4>
+                    <p>Todo lo creado o modificado por el ser humano.</p>
+                    <ul>
+                        <li>Casas, celulares, ropa</li>
+                        <li>Carreteras, puentes</li>
+                        <li>Herramientas, máquinas</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h4>Actividad:</h4>
+                    <p>Hacé una lista de 5 elementos naturales y 5 artificiales que veas en tu casa o escuela.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Necesidades, Deseos y Demandas</h3>
+                <p>En tecnología, es importante diferenciar estos conceptos:</p>
+                
+                <ul>
+                    <li><strong>Necesidad:</strong> Algo indispensable para vivir (comer, dormir, abrigarse).</li>
+                    <li><strong>Deseo:</strong> Algo que queremos pero no es indispensable (un videojuego nuevo, ir al cine).</li>
+                    <li><strong>Demanda:</strong> Cuando tenemos recursos para comprar ese deseo o necesidad.</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>Ejemplo:</h4>
+                    <p><strong>Necesidad:</strong> Tengo hambre → Necesito comer.<br>
+                    <strong>Deseo:</strong> Quiero comer una pizza especial.<br>
+                    <strong>Demanda:</strong> Tengo dinero para comprar esa pizza.</p>
+                </div>
+                
+                <h3>Clasificación de las necesidades (Maslow):</h3>
+                <ol>
+                    <li><strong>Básicas o Fisiológicas:</strong> comer, dormir, respirar.</li>
+                    <li><strong>Seguridad:</strong> tener una casa, sentirnos protegidos.</li>
+                    <li><strong>Sociales:</strong> tener amigos, familia, sentirnos parte de un grupo.</li>
+                    <li><strong>Reconocimiento:</strong> que nos valoren, tener autoestima.</li>
+                    <li><strong>Autorrealización:</strong> cumplir sueños o metas personales.</li>
+                </ol>
+                
+                <div class="tip">
+                    <p><strong>💡 Para recordar:</strong> Las necesidades básicas son las más importantes. Si no las satisfaces, no podrás ocuparte de las demás.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Productos Tecnológicos</h3>
+                <p>Los productos tecnológicos se clasifican en tres categorías:</p>
+                
+                <ul>
+                    <li><strong>Bienes:</strong> Objetos tangibles que podemos tocar (celular, lápiz, silla).</li>
+                    <li><strong>Servicios:</strong> Actividades que satisfacen necesidades (transporte, educación, internet).</li>
+                    <li><strong>Procesos:</strong> Secuencia de pasos para lograr algo (receta de cocina, instrucciones para armar un mueble).</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>Ejemplo integrador:</h4>
+                    <p><strong>Bien:</strong> Un colectivo (autobús).<br>
+                    <strong>Servicio:</strong> El viaje en colectivo.<br>
+                    <strong>Proceso:</strong> Los pasos para fabricar el colectivo.</p>
+                </div>
+                
+                <div class="activity">
+                    <h4>Actividad:</h4>
+                    <p>Pensá en tres productos tecnológicos que uses a diario y clasificalos en bienes, servicios o procesos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RECUPERATORIO 2 -->
+        <div id="recuperatorio2" class="tab-content">
+            <h2>Recuperatorio 2do Trimestre</h2>
+            
+            <div class="card">
+                <h3>Tecnologías Duras y Blandas</h3>
+                <p>Las tecnologías se pueden clasificar en dos tipos principales:</p>
+                
+                <div class="example-box">
+                    <h4>Tecnologías Duras:</h4>
+                    <p>Se refieren a herramientas, máquinas, equipos u objetos tangibles.</p>
+                    <ul>
+                        <li>Un taladro</li>
+                        <li>Una computadora</li>
+                        <li>Un motor</li>
+                        <li>Un martillo</li>
+                    </ul>
+                    
+                    <h4>Tecnologías Blandas:</h4>
+                    <p>Se refieren a conocimientos, métodos, técnicas o formas de organizar.</p>
+                    <ul>
+                        <li>Una receta de cocina</li>
+                        <li>Un manual de instrucciones</li>
+                        <li>Las reglas de un juego</li>
+                        <li>Un plan de estudio</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h4>Actividad de clasificación:</h4>
+                    <p>Clasificá estos ejemplos en "Duras" o "Blandas":</p>
+                    <ul>
+                        <li>Un martillo → <span class="answer">DURA</span></li>
+                        <li>Un plan de estudio → <span class="answer">BLANDA</span></li>
+                        <li>Las piezas de un auto → <span class="answer">DURA</span></li>
+                        <li>La organización de un torneo → <span class="answer">BLANDA</span></li>
+                        <li>Una aplicación de celular → <span class="answer">BLANDA</span></li>
+                        <li>Un robot industrial → <span class="answer">DURA</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Técnicas Artesanales e Industriales</h3>
+                <p>Existen dos formas principales de producción:</p>
+                
+                <table class="comparison-table">
+                    <tr>
+                        <th>Característica</th>
+                        <th>Producción Artesanal</th>
+                        <th>Producción Industrial</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Forma de producción</strong></td>
+                        <td>Hecha a mano o con herramientas simples</td>
+                        <td>Hecha con máquinas en fábricas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cantidad</strong></td>
+                        <td>Pocas unidades</td>
+                        <td>Muchas unidades (producción en masa)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Características del producto</strong></td>
+                        <td>Única y especial, con variaciones</td>
+                        <td>Todas iguales (estandarizadas)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Participación del trabajador</strong></td>
+                        <td>El artesano hace todo el proceso</td>
+                        <td>Cada trabajador hace una parte específica</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ejemplos</strong></td>
+                        <td>Pulsera de hilos, pan casero, cerámica hecha a mano</td>
+                        <td>Auto, celular, gaseosa, ropa de marca</td>
+                    </tr>
+                </table>
+                
+                <div class="tip">
+                    <p><strong>💡 Para pensar:</strong> ¿Qué ventajas tiene cada tipo de producción? La artesanal crea productos únicos, mientras que la industrial puede producir muchos productos idénticos a menor costo.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Aportes de la Ciencia y la Técnica</h3>
+                <p>Es importante entender la diferencia y relación entre ciencia y técnica:</p>
+                
+                <div class="example-box">
+                    <h4>Ciencia:</h4>
+                    <p>Busca entender el mundo mediante la investigación, observación y experimentación.</p>
+                    <p><strong>Ejemplo:</strong> Estudiar por qué crecen las plantas, investigar las propiedades de los materiales.</p>
+                    
+                    <h4>Técnica:</h4>
+                    <p>Aplica el conocimiento científico para resolver problemas prácticos (cómo hacer algo).</p>
+                    <p><strong>Ejemplo:</strong> Aprender a cultivar plantas para alimentarnos, construir una casa resistente.</p>
+                </div>
+                
+                <h3>Relación entre Ciencia y Técnica:</h3>
+                <p>La ciencia descubre, la técnica aplica. Trabajan juntas para mejorar nuestra calidad de vida.</p>
+                
+                <div class="example-box">
+                    <h4>Ejemplo integrador:</h4>
+                    <p><strong>Ciencia:</strong> Estudia la electricidad y sus propiedades.<br>
+                    <strong>Técnica:</strong> Aplica ese conocimiento para crear la lámpara.<br>
+                    <strong>Resultado:</strong> Podemos tener luz artificial cuando es de noche.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Vocabulario Tecnológico</h3>
+                <p>Aquí tenés algunos términos fundamentales que debés conocer:</p>
+                
+                <div class="word-list">
+                    <div class="word-item">Herramienta</div>
+                    <div class="word-item">Máquina</div>
+                    <div class="word-item">Proceso</div>
+                    <div class="word-item">Materiales</div>
+                    <div class="word-item">Innovación</div>
+                    <div class="word-item">Tecnología</div>
+                    <div class="word-item">Ciencia</div>
+                    <div class="word-item">Técnica</div>
+                    <div class="word-item">Producción</div>
+                    <div class="word-item">Diseño</div>
+                </div>
+                
+                <div class="word-search">
+                    <h4>Sopa de letras - Conceptos clave</h4>
+                    <p>Encuentra las palabras del listado anterior en la siguiente sopa de letras:</p>
+                    
+                    <div class="word-search-grid">
+                        <!-- Fila 1 -->
+                        <div class="word-search-letter">U</div><div class="word-search-letter">F</div><div class="word-search-letter">U</div><div class="word-search-letter">N</div><div class="word-search-letter">C</div><div class="word-search-letter">I</div><div class="word-search-letter">O</div><div class="word-search-letter">N</div><div class="word-search-letter">A</div><div class="word-search-letter">M</div><div class="word-search-letter">L</div><div class="word-search-letter">E</div><div class="word-search-letter">N</div><div class="word-search-letter">T</div><div class="word-search-letter">O</div><div class="word-search-letter">M</div>
+                        <!-- Fila 2 -->
+                        <div class="word-search-letter">Y</div><div class="word-search-letter">N</div><div class="word-search-letter">C</div><div class="word-search-letter">N</div><div class="word-search-letter">N</div><div class="word-search-letter">R</div><div class="word-search-letter">O</div><div class="word-search-letter">P</div><div class="word-search-letter">E</div><div class="word-search-letter">S</div><div class="word-search-letter">U</div><div class="word-search-letter">O</div><div class="word-search-letter">M</div><div class="word-search-letter">Q</div><div class="word-search-letter">Y</div><div class="word-search-letter">K</div>
+                        <!-- Fila 3 -->
+                        <div class="word-search-letter">N</div><div class="word-search-letter">O</div><div class="word-search-letter">I</div><div class="word-search-letter">C</div><div class="word-search-letter">A</div><div class="word-search-letter">Z</div><div class="word-search-letter">I</div><div class="word-search-letter">N</div><div class="word-search-letter">A</div><div class="word-search-letter">G</div><div class="word-search-letter">R</div><div class="word-search-letter">O</div><div class="word-search-letter">Q</div><div class="word-search-letter">C</div><div class="word-search-letter">Q</div><div class="word-search-letter">N</div>
+                        <!-- Fila 4 -->
+                        <div class="word-search-letter">L</div><div class="word-search-letter">F</div><div class="word-search-letter">E</div><div class="word-search-letter">M</div><div class="word-search-letter">A</div><div class="word-search-letter">R</div><div class="word-search-letter">K</div><div class="word-search-letter">E</div><div class="word-search-letter">T</div><div class="word-search-letter">I</div><div class="word-search-letter">N</div><div class="word-search-letter">G</div><div class="word-search-letter">X</div><div class="word-search-letter">F</div><div class="word-search-letter">J</div><div class="word-search-letter">O</div>
+                        <!-- Fila 5 -->
+                        <div class="word-search-letter">S</div><div class="word-search-letter">O</div><div class="word-search-letter">T</div><div class="word-search-letter">N</div><div class="word-search-letter">E</div><div class="word-search-letter">I</div><div class="word-search-letter">M</div><div class="word-search-letter">I</div><div class="word-search-letter">D</div><div class="word-search-letter">E</div><div class="word-search-letter">C</div><div class="word-search-letter">O</div><div class="word-search-letter">R</div><div class="word-search-letter">P</div><div class="word-search-letter">F</div><div class="word-search-letter">I</div>
+                        <!-- Fila 6 -->
+                        <div class="word-search-letter">R</div><div class="word-search-letter">N</div><div class="word-search-letter">O</div><div class="word-search-letter">I</div><div class="word-search-letter">C</div><div class="word-search-letter">A</div><div class="word-search-letter">R</div><div class="word-search-letter">T</div><div class="word-search-letter">S</div><div class="word-search-letter">I</div><div class="word-search-letter">N</div><div class="word-search-letter">I</div><div class="word-search-letter">M</div><div class="word-search-letter">D</div><div class="word-search-letter">A</div><div class="word-search-letter">C</div>
+                        <!-- Fila 7 -->
+                        <div class="word-search-letter">M</div><div class="word-search-letter">E</div><div class="word-search-letter">L</div><div class="word-search-letter">I</div><div class="word-search-letter">N</div><div class="word-search-letter">F</div><div class="word-search-letter">U</div><div class="word-search-letter">C</div><div class="word-search-letter">S</div><div class="word-search-letter">F</div><div class="word-search-letter">E</div><div class="word-search-letter">V</div><div class="word-search-letter">W</div><div class="word-search-letter">L</div><div class="word-search-letter">U</div><div class="word-search-letter">A</div>
+                        <!-- Fila 8 -->
+                        <div class="word-search-letter">F</div><div class="word-search-letter">M</div><div class="word-search-letter">I</div><div class="word-search-letter">E</div><div class="word-search-letter">I</div><div class="word-search-letter">S</div><div class="word-search-letter">O</div><div class="word-search-letter">T</div><div class="word-search-letter">E</div><div class="word-search-letter">J</div><div class="word-search-letter">B</div><div class="word-search-letter">O</div><div class="word-search-letter">U</div><div class="word-search-letter">O</div><div class="word-search-letter">D</div><div class="word-search-letter">M</div>
+                        <!-- Fila 9 -->
+                        <div class="word-search-letter">T</div><div class="word-search-letter">L</div><div class="word-search-letter">E</div><div class="word-search-letter">Z</div><div class="word-search-letter">O</div><div class="word-search-letter">N</div><div class="word-search-letter">I</div><div class="word-search-letter">E</div><div class="word-search-letter">V</div><div class="word-search-letter">P</div><div class="word-search-letter">I</div><div class="word-search-letter">T</div><div class="word-search-letter">P</div><div class="word-search-letter">B</div><div class="word-search-letter">W</div><div class="word-search-letter">R</div>
+                        <!-- Fila 10 -->
+                        <div class="word-search-letter">E</div><div class="word-search-letter">V</div><div class="word-search-letter">A</div><div class="word-search-letter">F</div><div class="word-search-letter">T</div><div class="word-search-letter">Y</div><div class="word-search-letter">U</div><div class="word-search-letter">E</div><div class="word-search-letter">B</div><div class="word-search-letter">S</div><div class="word-search-letter">D</div><div class="word-search-letter">I</div><div class="word-search-letter">S</div><div class="word-search-letter">E</div><div class="word-search-letter">N</div><div class="word-search-letter">O</div>
+                        <!-- Fila 11 -->
+                        <div class="word-search-letter">E</div><div class="word-search-letter">J</div><div class="word-search-letter">O</div><div class="word-search-letter">R</div><div class="word-search-letter">T</div><div class="word-search-letter">A</div><div class="word-search-letter">B</div><div class="word-search-letter">S</div><div class="word-search-letter">E</div><div class="word-search-letter">T</div><div class="word-search-letter">N</div><div class="word-search-letter">U</div><div class="word-search-letter">E</div><div class="word-search-letter">U</div><div class="word-search-letter">O</div><div class="word-search-letter">F</div>
+                        <!-- Fila 12 -->
+                        <div class="word-search-letter">A</div><div class="word-search-letter">C</div><div class="word-search-letter">O</div><div class="word-search-letter">M</div><div class="word-search-letter">P</div><div class="word-search-letter">U</div><div class="word-search-letter">T</div><div class="word-search-letter">A</div><div class="word-search-letter">D</div><div class="word-search-letter">O</div><div class="word-search-letter">R</div><div class="word-search-letter">A</div><div class="word-search-letter">S</div><div class="word-search-letter">I</div><div class="word-search-letter">D</div><div class="word-search-letter">S</div>
+                        <!-- Fila 13 -->
+                        <div class="word-search-letter">G</div><div class="word-search-letter">L</div><div class="word-search-letter">E</div><div class="word-search-letter">E</div><div class="word-search-letter">O</div><div class="word-search-letter">B</div><div class="word-search-letter">A</div><div class="word-search-letter">P</div><div class="word-search-letter">R</div><div class="word-search-letter">O</div><div class="word-search-letter">C</div><div class="word-search-letter">E</div><div class="word-search-letter">S</div><div class="word-search-letter">O</div><div class="word-search-letter">S</div><div class="word-search-letter">N</div>
+                        <!-- Fila 14 -->
+                        <div class="word-search-letter">M</div><div class="word-search-letter">A</div><div class="word-search-letter">T</div><div class="word-search-letter">E</div><div class="word-search-letter">R</div><div class="word-search-letter">I</div><div class="word-search-letter">A</div><div class="word-search-letter">L</div><div class="word-search-letter">E</div><div class="word-search-letter">S</div><div class="word-search-letter">X</div><div class="word-search-letter">U</div><div class="word-search-letter">Q</div><div class="word-search-letter">C</div><div class="word-search-letter">F</div><div class="word-search-letter">A</div>
+                        <!-- Fila 15 -->
+                        <div class="word-search-letter">M</div><div class="word-search-letter">J</div><div class="word-search-letter">N</div><div class="word-search-letter">L</div><div class="word-search-letter">T</div><div class="word-search-letter">S</div><div class="word-search-letter">E</div><div class="word-search-letter">L</div><div class="word-search-letter">B</div><div class="word-search-letter">I</div><div class="word-search-letter">G</div><div class="word-search-letter">N</div><div class="word-search-letter">A</div><div class="word-search-letter">T</div><div class="word-search-letter">W</div><div class="word-search-letter">R</div>
+                        <!-- Fila 16 -->
+                        <div class="word-search-letter">O</div><div class="word-search-letter">B</div><div class="word-search-letter">O</div><div class="word-search-letter">S</div><div class="word-search-letter">E</div><div class="word-search-letter">L</div><div class="word-search-letter">E</div><div class="word-search-letter">O</div><div class="word-search-letter">C</div><div class="word-search-letter">N</div><div class="word-search-letter">O</div><div class="word-search-letter">N</div><div class="word-search-letter">A</div><div class="word-search-letter">Y</div><div class="word-search-letter">V</div><div class="word-search-letter">T</div>
+                    </div>
+                    
+                    <p><strong>Palabras a encontrar:</strong> HERRAMIENTA, MAQUINA, PROCESO, MATERIALES, INNOVACION, TECNOLOGIA, CIENCIA, TECNICA, PRODUCCION, DISEÑO</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ACTIVIDADES PRÁCTICAS -->
+        <div id="actividades" class="tab-content">
+            <h2>Actividades Prácticas</h2>
+            
+            <div class="card">
+                <h3>Actividad Integradora 1: Identificación de Conceptos</h3>
+                <div class="activity">
+                    <p><strong>Instrucciones:</strong> Dibujá un producto tecnológico que uses todos los días y respondé:</p>
+                    <ol>
+                        <li>¿Es un bien, servicio o proceso? ¿Por qué?</li>
+                        <li>¿Satisface una necesidad, un deseo o una demanda?</li>
+                        <li>¿Pertenece al mundo natural o artificial?</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Actividad Integradora 2: Comparación de Producción</h3>
+                <div class="activity">
+                    <p><strong>Instrucciones:</strong> Pensá en un objeto artesanal y uno industrial. Completá la siguiente tabla:</p>
+                    
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Característica</th>
+                            <th>Objeto Artesanal</th>
+                            <th>Objeto Industrial</th>
+                        </tr>
+                        <tr>
+                            <td>Nombre del objeto</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>¿Cómo se produce?</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>¿Quién lo produce?</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>¿Cuántas unidades se producen?</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>¿Todas son iguales?</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Actividad Integradora 3: Tecnología en la Vida Cotidiana</h3>
+                <div class="activity">
+                    <p><strong>Instrucciones:</strong> Durante un día, anotá todas las tecnologías que uses (desde que te despertás hasta que te acostás). Luego clasificalas en:</p>
+                    <ul>
+                        <li>Tecnologías Duras</li>
+                        <li>Tecnologías Blandas</li>
+                        <li>Bienes</li>
+                        <li>Servicios</li>
+                        <li>Procesos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Actividad de Repaso: Preguntas para Autoevaluación</h3>
+                <div class="activity">
+                    <p><strong>Respondé estas preguntas para verificar tu comprensión:</strong></p>
+                    <ol>
+                        <li>Explicá con tus palabras la diferencia entre ciencia y técnica.</li>
+                        <li>Dá tres ejemplos de necesidades básicas y tres de deseos.</li>
+                        <li>¿Por qué decimos que un celular pertenece al mundo artificial?</li>
+                        <li>Mencioná dos ventajas de la producción industrial y dos de la producción artesanal.</li>
+                        <li>Clasificá estos elementos en tecnologías duras o blandas: un manual de instrucciones, un martillo, un software, una licuadora.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CONSEJOS DE ESTUDIO -->
+        <div id="consejos" class="tab-content">
+            <h2>Consejos de Estudio</h2>
+            
+            <div class="card">
+                <h3>¿Cómo estudiar Tecnología efectivamente?</h3>
+                
+                <div class="tip">
+                    <h4>1. Relacioná los conceptos con tu vida diaria</h4>
+                    <p>La tecnología está en todas partes. Cuando estudies un concepto, pensá en ejemplos que veas a tu alrededor. Esto te ayudará a recordar mejor.</p>
+                </div>
+                
+                <div class="tip">
+                    <h4>2. Usá dibujos y esquemas</h4>
+                    <p>Dibujar los conceptos te ayuda a visualizarlos y entenderlos mejor. Por ejemplo, podés hacer un dibujo que muestre la diferencia entre mundo natural y artificial.</p>
+                </div>
+                
+                <div class="tip">
+                    <h4>3. Creá tus propios ejemplos</h4>
+                    <p>No te limites a los ejemplos del material. Inventá tus propios ejemplos para cada concepto. Esto demuestra que realmente entendés.</p>
+                </div>
+                
+                <div class="tip">
+                    <h4>4. Estudiá en grupo</h4>
+                    <p>Reunite con compañeros para discutir los conceptos. Explicarle a otros te ayuda a consolidar tu propio conocimiento.</p>
+                </div>
+                
+                <div class="tip">
+                    <h4>5. Hacé las actividades prácticas</h4>
+                    <p>No saltees las actividades. Son fundamentales para aplicar lo que aprendiste y verificar tu comprensión.</p>
+                </div>
+                
+                <div class="tip">
+                    <h4>6. Usa la técnica de estudio "Feynman"</h4>
+                    <p>Explicá los conceptos como si se lo estuvieras enseñando a alguien que no sabe nada del tema. Si te cuesta explicarlo, es señal de que necesitás repasar.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Preparación para los Recuperatorios</h3>
+                
+                <div class="activity">
+                    <h4>Plan de estudio sugerido:</h4>
+                    <p><strong>Día 1:</strong> Repasá los conceptos del Recuperatorio 1 (Tecnología, Mundo natural/artificial, Necesidades/deseos/demandas, Productos tecnológicos).</p>
+                    <p><strong>Día 2:</strong> Hacé las actividades prácticas del Recuperatorio 1.</p>
+                    <p><strong>Día 3:</strong> Repasá los conceptos del Recuperatorio 2 (Tecnologías duras/blandas, Producción artesanal/industrial, Ciencia/técnica).</p>
+                    <p><strong>Día 4:</strong> Hacé las actividades prácticas del Recuperatorio 2 y la sopa de letras.</p>
+                    <p><strong>Día 5:</strong> Repasá todo el material y resolvé las preguntas de autoevaluación.</p>
+                </div>
+                
+                <div class="tip">
+                    <h4>💡 Consejo adicional:</h4>
+                    <p>El día del examen, leé todas las preguntas cuidadosamente antes de empezar a responder. Empezá por las que te resulten más fáciles para ganar confianza.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Material de estudio para Educación Tecnológica - Primer Año</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remover clase active de todos los botones y contenidos
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Agregar clase active al botón clickeado
+                    button.classList.add('active');
+                    
+                    // Mostrar el contenido correspondiente
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Mostrar/ocultar respuestas en actividades
+            const answers = document.querySelectorAll('.answer');
+            answers.forEach(answer => {
+                answer.style.display = 'none';
+                answer.parentElement.addEventListener('click', function() {
+                    if (answer.style.display === 'none') {
+                        answer.style.display = 'inline';
+                    } else {
+                        answer.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
